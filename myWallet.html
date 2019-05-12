@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="myWallet.css" rel="stylesheet">
+    <script src="myWallet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+       <h1 class="text">My Wallet</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="incomeAndConsumption">
+                <span class="addTransaction transactionButton">Income</span> 
+                <div class="changeCategory">
+                    <span class="transactionButton addCategory">Add  income categories</span>
+                    <br>
+                    <span class="transactionButton deleteCategory">Delete  income categories</span>
+                </div>
+            </li> <hr>
+            <li class="incomeAndConsumption">
+                <span class="addTransaction transactionButton">Consumption</span>
+                <div class="changeCategory">
+                    <span class="transactionButton addCategory">Add consumption categories</span>
+                    <br>
+                    <span class="transactionButton deleteCategory">Delete consumption categories</span>
+                </div>
+            </li> <hr>
+            <li>
+                <span>Balance</span>
+                <p>
+                    <span id="balance"> 0</span>
+                    &#8372;
+                </p>
+            </li> <hr>
+        </ul>
+    </nav>
+    <article>
+        <h2 class="headline">Transaction</h2>
+        <div class="transaction border">
+        </div>
+        <h3 class="headline">Payment history</h3>
+        <section id='transactionList'></section>
+    </article>
+
+</body>
+</html>

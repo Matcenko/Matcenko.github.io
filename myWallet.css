@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif; }
+
+body {
+  background-color: #f9f9f9; }
+
+header {
+  background-color: #383b3f;
+  color: #edf3f7;
+  min-height: 10vh;
+  width: 100%; }
+
+nav {
+  background-color: #5a5d63;
+  color: #edf3f7;
+  text-align: center;
+  width: 18%;
+  min-height: 79vh;
+  float: left;
+  padding-top: 82px; }
+  nav ul hr {
+    margin-bottom: 60px; }
+
+.incomeAndConsumption {
+  min-height: 96px; }
+  .incomeAndConsumption .transactionButton {
+    cursor: pointer; }
+  .incomeAndConsumption .transactionButton:hover {
+    color: palegoldenrod;
+    font-size: 105%;
+    transition: 0.5s; }
+  .incomeAndConsumption .changeCategory {
+    display: none; }
+
+article .headline {
+  background-color: #bdb1b1;
+  padding-left: 18.5%; }
+article .transaction {
+  background-color: #d4e7ff;
+  padding: 15px;
+  padding-left: 19%; }
+  article .transaction #inputTransaction {
+    background-color: #edf3f7;
+    height: 15px;
+    margin: 2.5px; }
+  article .transaction .selectCategory {
+    width: 100px;
+    background-color: #edf3f7;
+    border: 1px double #e7e0e0;
+    height: 15px;
+    margin: 2.5px; }
+  article .transaction .saveTransactionButton {
+    width: 100px;
+    background-color: #edf3f7;
+    border-radius: 4px;
+    border: 1px double #e7e0e0;
+    box-shadow: 0ch;
+    margin: 2.5px;
+    cursor: pointer; }
+  article .transaction .saveTransactionButton:hover {
+    background-color: #9bc8ff; }
+  article .transaction .deleteButton {
+    width: 100px;
+    background-color: #edf3f7;
+    border-radius: 4px;
+    border: 1px double #e7e0e0;
+    box-shadow: 0ch;
+    margin: 2.5px;
+    cursor: pointer; }
+  article .transaction .deleteButton:hover {
+    background-color: #9bc8ff; }
+article .border {
+  border: 1px ridge gray; }
+article .Income {
+  background-color: #8fff96;
+  padding: 4px;
+  padding-left: 19%; }
+article .Consumption {
+  background-color: #f26161;
+  padding: 4px;
+  padding-left: 19%; }
+
+/*# sourceMappingURL=myWallet.css.map */

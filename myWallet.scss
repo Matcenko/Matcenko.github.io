@@ -11,14 +11,14 @@ body{
 $navWidth: 18%;
 $textColor: #edf3f7;
 
-header{
+#header{
     background-color: #383b3f;
     color: $textColor;
     min-height: 10vh;
     width: 100%;
 }
 
-nav{
+#menu{
     background-color:#5a5d63;
     color: $textColor;
     text-align: center;
@@ -46,7 +46,7 @@ nav{
             display: none;
         }      
     }
-article{
+.TransAct{
     .headline{
         background-color:#bdb1b1;
         padding-left: $navWidth +0.5%;   

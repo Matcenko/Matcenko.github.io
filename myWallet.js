@@ -1,5 +1,4 @@
-
-Wallet = {
+const Wallet = {
     balance : 0,
     Categories : [['salary','side job','presents','interest'], ['products','entertainment','clothes','health']],
 
@@ -8,36 +7,36 @@ Wallet = {
         $('.transaction').empty();
 
         $(".transaction").html(cashFlow); // Используем cashFlow для заполнения названий транзакций и для назначения классов
-        let $inputTransaction = $('<input id="inputTransaction">');
-        let $selectCategory = $('<select class="selectCategory"></select>');
+        const $inputTransaction = $('<input id="inputTransaction">');
+        const $selectCategory = $('<select class="selectCategory"></select>');
 
         let $saveTransactionButton = $('<button class="saveTransactionButton">Save</button>');
-    
+
         $(".transaction").append($inputTransaction);
         $(".transaction").append($selectCategory);
         $(".transaction").append($saveTransactionButton);
-        
+
         this.addCategoriesToSelect(categories);
     },
     addCategoriesToSelect:function(categories){
         categories.forEach((item)=>{ //добавляем категории товаров в список
-            let $option = $(`<option>`);
+            const $option = $(`<option>`);
             $option.html(item)
             $('.selectCategory').append($option);
         })
     },
     saveTransaction:function(cashFlow){ //сохраянем введенную транзакцию/добавление категории
-        $('.saveTransactionButton').click( ()=>{ 
+        $('.saveTransactionButton').click( ()=>{
             if((inputTransaction.value>0)||(inputTransaction.value<0)){
-                let thisSelect = $('.selectCategory');
+                const thisSelect = $('.selectCategory');
                 let thisTransaction = +inputTransaction.value;
                 inputTransaction.value ='';
                 if((cashFlow === 'Consumption')&&(thisTransaction>0) //если введена неверная сумма
                 || (cashFlow === 'Income')&&(thisTransaction<0))
                     thisTransaction*=(-1);
 
-                Wallet.balance += +thisTransaction; //сохраняем баланс
-                $('#balance').html(Wallet.balance); 
+                this.balance += +thisTransaction; //сохраняем баланс
+                $('#balance').html(Wallet.balance);
                 window.localStorage.balance = this.balance;
 
                 $incomeOrConsumption = $(
@@ -53,7 +52,7 @@ Wallet = {
         })
     },
     saveChanges:function(cashFlow,categories){
-        $('.saveTransactionButton').click( ()=>{ 
+        $('.saveTransactionButton').click( ()=>{
             if(inputTransaction.value){
                 categories.push(inputTransaction.value);
                 this.transfer(categories,cashFlow)
@@ -62,7 +61,7 @@ Wallet = {
             }
         })
     },
-    deleteCategory:function(categories){ 
+    deleteCategory:function(categories){
         $deleteButton = $('<button class="deleteButton">Delete</button>');
         $(".saveTransactionButton").replaceWith($deleteButton);
         $('#inputTransaction').remove();
@@ -77,7 +76,7 @@ Wallet = {
     }
 }
 
-window.onload = () =>{ 
+window.onload = () =>{
 
     if(window.localStorage.balance){//отрисовка данных с локального хранилища
         $('#balance').html(window.localStorage.balance);
@@ -94,24 +93,24 @@ window.onload = () =>{
     Wallet.saveTransaction('Income');
 
 
-    $('.incomeAndConsumption').each((item)=>{  
+    $('.incomeAndConsumption').each((item)=>{
 
         $('.incomeAndConsumption').eq(item).mouseover( () =>{ //при наведении мыши выводим подменю
             $('.changeCategory').eq(item).show();
         })
         $('.incomeAndConsumption').eq(item).mouseout( () =>{ //убираем мышь— скрываем подменю
-            $('.changeCategory').eq(item).hide();  
+            $('.changeCategory').eq(item).hide();
         })
-        
+
         $('.addTransaction').eq(item).click( ()=>{ // добавляем транзакцию поступления/расхода средств
             Wallet.transfer( Wallet.Categories[item], $('.addTransaction').eq(item).html() );
             Wallet.saveTransaction( $('.addTransaction').eq(item).html() );
-        }) 
+        })
 
         $('.addCategory').eq(item).click( ()=>{ // добавляем категорию поступления/расхода средств
             Wallet.transfer( Wallet.Categories[item], $('.addCategory').eq(item).html() );
             Wallet.saveChanges( $('.addCategory').eq(item).html(), Wallet.Categories[item] );
-        }) 
+        })
 
         $(".deleteCategory").eq(item).click( ()=>{//// удаляем категорию поступления/расхода средств
             Wallet.transfer( Wallet.Categories[item],$('.deleteCategory').eq(item).html() )
